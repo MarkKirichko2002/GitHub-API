@@ -16,19 +16,17 @@ class UsersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var interactor: UsersBusinessLogic?
+    private var interactor: UsersBusinessLogic?
     var presenter: UsersPresentationLogic?
-    var router: UsersRoutingLogic?
+    private(set) var router: UsersRoutingLogic?
     
     var users = [UsersViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Пользователи GitHub"
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "UsersTableViewCell", bundle: nil), forCellReuseIdentifier: UsersTableViewCell.identifier)
         setup()
+        configureTableView()
         interactor?.makeRequest(request: .GetUsers)
     }
     
@@ -44,6 +42,13 @@ class UsersViewController: UIViewController {
         router.viewController = viewController
     }
     
+    private func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.register(UINib(nibName: "UsersTableViewCell", bundle: nil), forCellReuseIdentifier: UsersTableViewCell.identifier)
+    }
+    
 }
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
@@ -55,6 +60,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.identifier, for: indexPath) as! UsersTableViewCell
         cell.configure(users: users[indexPath.row])
+        cell.delegate = self
         return cell
     }
 }
@@ -68,5 +74,11 @@ extension UsersViewController: UsersDisplayLogic {
                 self.tableView.reloadData()
             }
         }
+    }
+}
+
+extension UsersViewController: UserCellDelegate {
+    func didUserTap(login: String) {
+         router?.navigateToDetails(login: login)
     }
 }

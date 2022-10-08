@@ -20,7 +20,7 @@ class UsersPresenter: UsersPresentationLogic {
         case .presentUsers(let users):
             var userCells: [UsersViewModel] = []
             users.forEach { user in
-                userCells.append(UsersViewModel(login: user.login, image: user.avatarURL, id: user.id))
+                userCells.append(UsersViewModel(login: user.login ?? "", image: user.avatarURL ?? "", id: user.id ?? 0))
             }
             viewController?.displayData(viewModel: .displayUsers(usersViewModel: userCells))
         }
