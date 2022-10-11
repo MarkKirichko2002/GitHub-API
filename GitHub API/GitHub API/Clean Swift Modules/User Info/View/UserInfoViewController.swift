@@ -14,7 +14,7 @@ protocol UserInfoDisplayLogic: class {
     func displayUserInfo(viewModel: UserInfoModelsEnum.Model.ViewModel.ViewModelData)
 }
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: UIViewController, UserInfoRoutingLogic {
     
     @IBOutlet weak var UserImage: UIImageView!
     @IBOutlet weak var UserName: UILabel!
@@ -25,6 +25,10 @@ class UserInfoViewController: UIViewController {
     private var interactor: UserInfoBusinessLogic?
     var presenter: UserInfoPresentationLogic?
     private(set) var router: (UserInfoRoutingLogic & UserInfoDataPassing)?
+    
+    @IBAction func navigateToRepos() {
+        navigateToRepos(login: router?.dataStore?.login ?? "")
+    }
     
     private func setup() {
         let viewController = self
@@ -37,6 +41,10 @@ class UserInfoViewController: UIViewController {
         viewController.interactor = interactor
         viewController.router = router
         router.viewController = viewController
+    }
+    
+    func navigateToRepos(login: String) {
+        router?.navigateToRepos(login: login)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -73,6 +81,3 @@ extension UserInfoViewController: UserInfoDisplayLogic {
     }
 }
 
-extension UserInfoViewController: UserInfoRoutingLogic {
-    
-}

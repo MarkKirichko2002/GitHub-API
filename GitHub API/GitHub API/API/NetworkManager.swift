@@ -12,7 +12,7 @@ protocol NetworkManagerProtocol {
 }
 
 struct NetworkManager: NetworkManagerProtocol{
-    func getUsers(completion: @escaping ([User]?) -> Void) {
+    func getUsers(completion: @escaping ([User]?) -> ()) {
         let fullUrl = API.url
             guard let url = URL(string: fullUrl) else { return }
         URLSession.shared.dataTask(with: URL(string: fullUrl)!) { (data, _, error) in
@@ -36,6 +36,21 @@ struct NetworkManager: NetworkManagerProtocol{
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
                 completion(user)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    func GetCurrentUserRepos(login: String, completion: @escaping ([Repo]?) -> ()) {
+        let url = "https://api.github.com/users/\(login)/repos"
+        
+        URLSession.shared.dataTask(with: URL(string: url)!) { (data, _, error) in
+            guard let data = data else {return}
+            
+            do {
+                let repos = try JSONDecoder().decode([Repo].self, from: data)
+                completion(repos)
             } catch {
                 print(error)
             }

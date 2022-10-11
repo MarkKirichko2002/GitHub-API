@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol UserInfoRoutingLogic {
-    
+    func navigateToRepos(login: String)
 }
 
 protocol UserInfoDataPassing {
@@ -26,4 +26,10 @@ class UserInfoRouter: UserInfoDataPassing {
 
 extension UserInfoRouter: UserInfoRoutingLogic {
     
+    func navigateToRepos(login: String) {
+        let storyboard = UIStoryboard.init(name: "UserReposTableViewController", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(identifier: "UserReposTableViewController") as? UserReposTableViewController else {return}
+        vc.router?.dataStore?.login = login
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
