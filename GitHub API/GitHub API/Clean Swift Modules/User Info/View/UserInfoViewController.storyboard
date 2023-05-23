@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Info View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UserInfoViewController" id="Y6W-OH-hqX" customClass="UserInfoViewController" customModule="GitHub_API" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-MP-jxT">
+                                <rect key="frame" x="140" y="168" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="g1a-Qu-lBG"/>
+                                    <constraint firstAttribute="width" constant="150" id="g78-ep-cLc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="имя" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-DI-lq4">
+                                <rect key="frame" x="30" y="368" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="логин" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jc-ff-4tt">
+                                <rect key="frame" x="30" y="439" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-rc-zbn">
+                                <rect key="frame" x="30" y="510" width="370" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="репозитории">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="navigateToRepos" destination="Y6W-OH-hqX" eventType="touchUpInside" id="psK-2e-44q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGe-3w-VMw">
+                                <rect key="frame" x="30" y="594" width="370" height="34.666666666666629"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="подписчики">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p6a-rc-zbn" firstAttribute="top" secondItem="4jc-ff-4tt" secondAttribute="bottom" constant="50" id="5QU-OJ-nW9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p6a-rc-zbn" secondAttribute="trailing" constant="30" id="7Be-Th-EGw"/>
+                            <constraint firstItem="U4J-MP-jxT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="109" id="Ao7-z4-O0v"/>
+                            <constraint firstItem="4jc-ff-4tt" firstAttribute="top" secondItem="Teh-DI-lq4" secondAttribute="bottom" constant="50" id="FGQ-zc-NHr"/>
+                            <constraint firstItem="4jc-ff-4tt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Pss-j2-50P"/>
+                            <constraint firstItem="p6a-rc-zbn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="T0X-KX-4HF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Teh-DI-lq4" secondAttribute="trailing" constant="30" id="TUW-Nb-0GO"/>
+                            <constraint firstItem="U4J-MP-jxT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xfo-gd-RXi"/>
+                            <constraint firstItem="Teh-DI-lq4" firstAttribute="top" secondItem="U4J-MP-jxT" secondAttribute="bottom" constant="50" id="YQ4-LA-I3b"/>
+                            <constraint firstItem="Teh-DI-lq4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="bG3-WP-yJC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EGe-3w-VMw" secondAttribute="trailing" constant="30" id="h3i-0f-W4Q"/>
+                            <constraint firstItem="EGe-3w-VMw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="pWh-0u-mxE"/>
+                            <constraint firstItem="EGe-3w-VMw" firstAttribute="top" secondItem="p6a-rc-zbn" secondAttribute="bottom" constant="50" id="qig-ay-xwG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4jc-ff-4tt" secondAttribute="trailing" constant="30" id="zoo-mB-Fc3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FollowersButton" destination="EGe-3w-VMw" id="2LG-PH-r3L"/>
+                        <outlet property="ReposButton" destination="p6a-rc-zbn" id="FI1-dv-HR9"/>
+                        <outlet property="UserImage" destination="U4J-MP-jxT" id="6os-bI-3Ca"/>
+                        <outlet property="UserLogin" destination="4jc-ff-4tt" id="ojB-k3-GE8"/>
+                        <outlet property="UserName" destination="Teh-DI-lq4" id="qXw-Nl-I03"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.92307692307692" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="github" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

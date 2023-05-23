@@ -26,7 +26,8 @@ class UsersInteractor: UsersBusinessLogic {
     
     func GetUsers() {
         self.networkManager.getUsers { users in
-            self.presenter?.presentData(response: .presentUsers(users: users!))
+            guard let users = users else {return}
+            self.presenter?.presentData(response: .presentUsers(users: users))
         }
     }
 }

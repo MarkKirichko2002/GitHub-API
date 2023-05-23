@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserReposTableViewCell" id="fZo-M3-ryf" customClass="UserReposTableViewCell" customModule="GitHub_API" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="138.33332824707031"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fZo-M3-ryf" id="VIC-hN-fhf">
+                <rect key="frame" x="0.0" y="0.0" width="428" height="138.33332824707031"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="Ux0-HW-1yQ" customClass="RoundedImageView" customModule="GitHub_API" customModuleProvider="target">
+                        <rect key="frame" x="36" y="19" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="Ce2-DI-Lnl"/>
+                            <constraint firstAttribute="width" constant="100" id="lhh-vT-1mQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeO-21-YqG">
+                        <rect key="frame" x="146" y="19" width="238" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLh-Tx-rlV">
+                        <rect key="frame" x="146" y="57" width="232" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BLh-Tx-rlV" firstAttribute="top" secondItem="KeO-21-YqG" secondAttribute="bottom" constant="20" id="0cj-UF-ZKz"/>
+                    <constraint firstItem="Ux0-HW-1yQ" firstAttribute="leading" secondItem="VIC-hN-fhf" secondAttribute="leadingMargin" constant="16" id="7PN-L2-h1B"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BLh-Tx-rlV" secondAttribute="bottom" constant="30" id="AEC-Wc-H3I"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ux0-HW-1yQ" secondAttribute="bottom" constant="8" id="QsP-vr-L7C"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BLh-Tx-rlV" secondAttribute="trailing" constant="30" id="R4i-HN-pHa"/>
+                    <constraint firstItem="Ux0-HW-1yQ" firstAttribute="top" secondItem="VIC-hN-fhf" secondAttribute="topMargin" constant="8" id="Xx5-wd-uWO"/>
+                    <constraint firstItem="BLh-Tx-rlV" firstAttribute="leading" secondItem="Ux0-HW-1yQ" secondAttribute="trailing" constant="10" id="lNi-hG-Krv"/>
+                    <constraint firstItem="KeO-21-YqG" firstAttribute="top" secondItem="Ux0-HW-1yQ" secondAttribute="top" constant="7.1054273576010019e-15" id="s3r-ur-GPs"/>
+                    <constraint firstItem="KeO-21-YqG" firstAttribute="leading" secondItem="Ux0-HW-1yQ" secondAttribute="trailing" constant="10" id="uWk-OM-fhS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KeO-21-YqG" secondAttribute="trailing" constant="24" id="v5H-3s-eHh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="RepoDescription" destination="BLh-Tx-rlV" id="4qg-6b-T8w"/>
+                <outlet property="RepoName" destination="KeO-21-YqG" id="ADP-5a-vWL"/>
+            </connections>
+            <point key="canvasLocation" x="-88" y="79"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="github" width="512" height="512"/>
+    </resources>
+</document>
